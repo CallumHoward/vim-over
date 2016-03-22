@@ -194,7 +194,7 @@ function! s:substitute_preview(line)
 		let hl_submatch = printf('\\="%s" . submatch(0) . "%s" . (', s:hl_mark_begin, s:hl_mark_center)
 		let string = substitute(string, '^\\=\ze.\+', hl_submatch, "") . ') . "' . s:hl_mark_end . '"'
 	else
-		let string = s:hl_mark_begin . '\0' . s:hl_mark_center . string . s:hl_mark_end
+        let string = s:hl_mark_begin . s:hl_mark_center . string . s:hl_mark_end
 	endif
 	let s:undo_flag = s:silent_substitute(range, pattern, string, flags)
 
